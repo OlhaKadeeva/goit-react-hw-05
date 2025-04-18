@@ -1,0 +1,79 @@
+.container {
+  padding: 20px;
+  color: white;
+  background-color: #1e1e1e;
+}
+
+.content {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.img {
+  width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.additional {
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #f39c12;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #e67e22;
+}
+
+.link {
+  margin-right: 15px;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Планшети */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .link {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Телефони */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+}
