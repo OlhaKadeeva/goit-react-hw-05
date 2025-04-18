@@ -4,15 +4,17 @@
   flex-wrap: wrap;
   gap: 16px;
   padding: 16px;
-  background-color: #1c1c1c;
+  margin: 5px 5px;
+  border-radius: 4px;
+  background-color: #d5baba;
 }
 
 .link {
-  color: #ffffff;
+  color: #2f2d2d;
   text-decoration: none;
   padding: 10px 14px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 300;
   border-radius: 8px;
   transition: ease-in-out 0.3s;
 }

@@ -1,4 +1,4 @@
-import css from "../pages/MovieDetailsPage";
+import css from "../pages/MovieDetailsPage.module.css";
 import {
   Link,
   useParams,
@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "../../api";
-import MovieCast from "../components/MovieCast";
-import MovieReviews from "../components/MovieReviews";
+import MovieCast from "../components/MovieCast.jsx";
+import MovieReviews from "../components/MovieReviews.jsx";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
