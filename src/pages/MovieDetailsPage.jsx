@@ -27,29 +27,42 @@ const MovieDetailsPage = () => {
   if (!movie) return <p>Loading...</p>;
 
   return (
-    <>
+    <div className={css.container}>
       <button onClick={() => navigate(backLink)} className={css.button}>
-        Go back
+        ⬅️ Go back
       </button>
       <div className={css.content}>
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          className={css.img}
         />
+        <div>
+          <h2>
+            {movie.title} ({movie.release_date?.slice(0, 4)})
+          </h2>
+          <p>
+            <b>User Score:</b> {Math.round(movie.vote_average * 10)}%
+          </p>
+
+          <h3>Overview</h3>
+          <p>{movie.overview}</p>
+
+          <h3>Genres</h3>
+          <p>{movie.genres.map((genre) => genre.name).join("  ")}</p>
+        </div>
       </div>
-      <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
 
       <div className={css.additional}>
         <h3>Additional info</h3>
         <ul>
           <li>
-            <Link to="cast" state={{ from: backLink }}>
+            <Link to="cast" state={{ from: backLink }} className={css.link}>
               Cast
             </Link>
           </li>
           <li>
-            <Link to="reviews" state={{ from: backLink }}>
+            <Link to="reviews" state={{ from: backLink }} className={css.link}>
               Reviews
             </Link>
           </li>
@@ -60,7 +73,7 @@ const MovieDetailsPage = () => {
         <Route path="cast" element={<MovieCast />} />
         <Route path="reviews" element={<MovieReviews />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

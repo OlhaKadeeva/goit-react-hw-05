@@ -1,27 +1,16 @@
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
-  gap: 16px;
-  padding: 16px;
-  margin: 5px 5px;
+  gap: 40px;
+  padding: 16px 30px;
+  margin: 5px 15px;
   border-radius: 4px;
   background-color: #d5baba;
 }
 
-.link {
-  color: #2f2d2d;
-  text-decoration: none;
-  padding: 10px 14px;
-  font-size: 12px;
-  font-weight: 300;
-  border-radius: 8px;
-  transition: ease-in-out 0.3s;
-}
-
 .link:hover,
 .active {
-  background-color: #f39c12;
   color: black;
 }
 
