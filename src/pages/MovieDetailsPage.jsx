@@ -1,4 +1,3 @@
-import css from "../pages/MovieDetailsPage.module.css";
 import {
   Link,
   useParams,
@@ -6,11 +5,11 @@ import {
   Routes,
   Route,
   useNavigate,
+  Outlet,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getMovieDetails } from "../../api";
-import MovieCast from "../components/MovieCast.jsx";
-import MovieReviews from "../components/MovieReviews.jsx";
+import css from "../pages/MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -18,7 +17,7 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const backLink = location.state?.from || "/movies";
+  const backLinkRef = useRef(location.state?.from || "/movies");
 
   useEffect(() => {
     getMovieDetails(movieId).then(({ data }) => setMovie(data));
@@ -28,7 +27,10 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
-      <button onClick={() => navigate(backLink)} className={css.button}>
+      <button
+        onClick={() => navigate(backLinkRef.current)}
+        className={css.button}
+      >
         ⬅️ Go back
       </button>
       <div className={css.content}>
@@ -57,22 +59,27 @@ const MovieDetailsPage = () => {
         <h3>Additional info</h3>
         <ul>
           <li>
-            <Link to="cast" state={{ from: backLink }} className={css.link}>
+            <Link
+              to="cast"
+              state={{ from: backLinkRef.current }}
+              className={css.link}
+            >
               Cast
             </Link>
           </li>
           <li>
-            <Link to="reviews" state={{ from: backLink }} className={css.link}>
+            <Link
+              to="reviews"
+              state={{ from: backLinkRef.current }}
+              className={css.link}
+            >
               Reviews
             </Link>
           </li>
         </ul>
       </div>
 
-      <Routes>
-        <Route path="cast" element={<MovieCast />} />
-        <Route path="reviews" element={<MovieReviews />} />
-      </Routes>
+      <Outlet />
     </div>
   );
 };

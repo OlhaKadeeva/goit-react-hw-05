@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { searchMovies } from "../../api";
+import { searchMovies } from "../../api.js";
 import MovieList from "../components/MovieList.jsx";
-import css from "../pages/MoviesPages.module.css";
+import css from "../pages/MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
